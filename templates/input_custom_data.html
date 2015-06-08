@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body %}
+<script type="text/javascript">
+  $(function() {
+    $('a#send').bind('click', function() {
+      $.getJSON($SCRIPT_ROOT + '/custom_data', {
+        a: $('input[name="input_data"]').val()
+      }, function(data) {
+          console.log(data);
+      });
+      return false;
+    });
+  });
+</script>
+<p><a href=# id=send>Send custom data to server</a></p>
+<input type=text size=100 name=input_data>
+{% endblock %}
